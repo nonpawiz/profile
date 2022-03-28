@@ -2,7 +2,7 @@
   <div v-if="loading">
     <Spinner class="text-center"/>
   </div>
-    <Home></Home>
+    <Home/>
 </template>
 
 <script>
