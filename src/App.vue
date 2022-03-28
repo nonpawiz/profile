@@ -19,7 +19,7 @@ export default {
   components:{Spinner,Home},
   mounted() {
     this.loading= true;
-         axios.get('https://comsci.srru.ac.th/qc/employee')
+         axios.get('https://comsci.srru.ac.th/qc/employees')
         //  axios.get('https://api.publicapis.org/entries')
         .then(
           res => {

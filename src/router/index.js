@@ -12,7 +12,7 @@ const router = createRouter({
     },
     {
       path: "/table",
-      name: "skills",
+      name: "table",
       component: skills,
     },
     // {

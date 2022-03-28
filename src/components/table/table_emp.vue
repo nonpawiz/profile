@@ -381,6 +381,21 @@ export default {
       })
   },
   methods: {
+    reload(){
+        this.load = true
+        axios
+          .get('https://comsci.srru.ac.th/qc/employees')
+          // axios.get('https://api.publicapis.org/entries')
+          .then((res) => {
+            this.employee = res.data
+            // console.log(this.employee)
+            this.load = false
+          })
+          .catch((error) => {
+            console.log(error)
+            this.load = false
+          })
+    },
     save_edit() {
       const headers = {
         'Content-Type': 'multipart/form-data',
@@ -412,8 +427,7 @@ export default {
             confirmButtonColor: '#009ED0',
           }).then((result) => {
             if (result.isConfirmed) {
-              this.rendor=false
-              this.rendor=true
+              this.reload()
             }
           })
         })
@@ -427,8 +441,7 @@ export default {
             confirmButtonColor: '#009ED0',
           }).then((result) => {
             if (result.isConfirmed) {
-              this.rendor=false
-              this.rendor=true
+              this.reload()
             }
           })
         })
@@ -499,8 +512,7 @@ export default {
             confirmButtonColor: '#009ED0',
           }).then((result) => {
             if (result.isConfirmed) {
-              this.rendor=false
-              this.rendor=true
+              this.reload()
             }
           })
         })
@@ -514,8 +526,8 @@ export default {
             confirmButtonColor: '#009ED0',
           }).then((result) => {
             if (result.isConfirmed) {
-              this.rendor=false
-              this.rendor=true
+              
+              this.reload()
             }
           })
         })
@@ -526,14 +538,12 @@ export default {
         .then((res) => {
           console.log(res)
           showAlert()
-          this.rendor=false
-          this.rendor=true
+          this.reload()
         })
         .catch((error) => {
           console.log(error)
           showAlert()
-          this.rendor=false
-          this.rendor=true
+          this.reload()
         })
     },
     showAlert() {
@@ -562,8 +572,7 @@ export default {
                 confirmButtonText: 'OK',
               }).then((result) => {
                 if (result.isConfirmed) {
-                  this.rendor=false
-                  this.rendor=true
+                  this.reload()
                 }
               })
             })
@@ -576,8 +585,7 @@ export default {
                 confirmButtonText: 'Close',
               }).then((result) => {
                 if (result.isConfirmed) {
-                  this.rendor=false
-                  this.rendor=true
+                  this.reload()
                 }
               })
             })
